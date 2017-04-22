@@ -17,6 +17,16 @@ img {
     max-width: 100%;
     height: auto;
 }
+table {
+    border-collapse:collapse;
+    border :1px solid #ddd;
+}
+table th h5{
+   padding: 0px;
+    margin:10;
+    text-align:center;
+    text-decoration:none;
+}
 .fix { overflow: hidden }
 h1,
 h2,

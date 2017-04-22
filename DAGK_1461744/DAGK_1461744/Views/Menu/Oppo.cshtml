@@ -1,6 +1,8 @@
-﻿@model PetaPoco.Page<DAGKConnection.SanPham>
+﻿
+@model PetaPoco.Page<DAGKConnection.SanPham>
 @{
     Layout = "~/Views/Shared/_MainLayout.cshtml";
+    ViewBag.Title = "Oppo";
 }
 
 <div class="product-carousel owl-carousel owl-theme owl-loaded owl-responsive-600">
@@ -8,16 +10,16 @@
     {
         <div class="single-product">
             <div class="product-f-image">
-                <img src="img/@{@item.HinhAnh}.jpg" alt="">
+                <img src="~/img/@{@item.HinhAnh}.jpg" alt="">
                 <div class="product-hover">
                     <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                    <a href="@Url.Action("Details", new { id = @item.MaSP })" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                    <a href="@Url.Action("Details","SanPham", new { id = @item.MaSP })" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                 </div>
             </div>
 
             <h2>
 
-                @Html.ActionLink(item.TenSP, "Details", new { id = item.MaSP })
+                @Html.ActionLink(item.TenSP, "Details", "SanPham", new { id = item.MaSP })
             </h2>
             <div class="product-carousel-price">
                 <ins>Giá: @string.Format("{0:#,0 VNĐ}", @item.Gia)</ins>
@@ -51,4 +53,6 @@
         </ul>
     </nav>
 </div>
+
+
 

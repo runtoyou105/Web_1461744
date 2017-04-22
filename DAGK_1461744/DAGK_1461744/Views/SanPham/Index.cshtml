@@ -7,7 +7,7 @@
     {
         <div class="single-product">
             <div class="product-f-image">
-                <img src="@item.HinhAnh" alt="">
+                <img src="~/img/@{@item.HinhAnh}.jpg" alt="">
                 <div class="product-hover">
                     <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                     <a href="@Url.Action("Details", new { id = @item.MaSP })" class="view-details-link"><i class="fa fa-link"></i> See details</a>
@@ -16,7 +16,7 @@
 
             <h2>
 
-                @Html.ActionLink(item.TenSP, "Details", new { id = item.MaSP })
+                @Html.ActionLink(item.TenSP, "Details",  new { id = item.MaSP })
             </h2>
             <div class="product-carousel-price">
                 <ins>Giá: @string.Format("{0:#,0 VNĐ}", @item.Gia)</ins>
