@@ -1,0 +1,54 @@
+﻿@model PetaPoco.Page<DAGKConnection.SanPham>
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="product-carousel owl-carousel owl-theme owl-loaded owl-responsive-600">
+    @foreach (var item in Model.Items)
+    {
+        <div class="single-product">
+            <div class="product-f-image">
+                <img src="@item.HinhAnh" alt="">
+                <div class="product-hover">
+                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                    <a href="@Url.Action("Details", new { id = @item.MaSP })" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                </div>
+            </div>
+
+            <h2>
+
+                @Html.ActionLink(item.TenSP, "Details", new { id = item.MaSP })
+            </h2>
+            <div class="product-carousel-price">
+                <ins>Giá: @string.Format("{0:#,0 VNĐ}", @item.Gia)</ins>
+            </div>
+        </div>
+
+    }
+</div>
+
+<div class="product-pagination text-center">
+    <nav>
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">«</span>
+                </a>
+            </li>
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                <li>@Html.ActionLink(i.ToString(), "Index", new { page = i })</li>
+
+            }
+
+
+
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">»</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+

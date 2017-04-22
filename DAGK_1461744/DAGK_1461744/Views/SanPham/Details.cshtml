@@ -1,0 +1,30 @@
+﻿@model DAGKConnection.SanPham
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+ @*<div class="product-carousel owl-carousel owl-theme owl-loaded owl-responsive-600">
+    <div class="single-product">
+        <div class="product-f-image">
+            <h2>@Model.TenSP</h2>
+
+            <img src="@Model.HinhAnh" />
+        </div>
+    </div>
+</div>*@
+
+
+<h1>@Model.TenSP</h1>
+<img src="@Model.HinhAnh" />
+<h5>Mô tả: @Model.MoTa</h5>
+<h5>Xuất xứ: @Model.XuatXu</h5>
+<h5>Giá: @Model.Gia VNĐ</h5>
+<h5>Số lượng tồn: @Model.SoLuongTon</h5>
+<h5>Ngày Nhập: @Model.NgayNhap</h5>
+<h5>Màn hình: @Model.ManHinh</h5>
+<h5>Ram: @Model.Ram</h5>
+<h5>Camera Trước: @Model.CameraTruoc</h5>
+<h5>Camera Sau: @Model.CameraSau</h5>
+
