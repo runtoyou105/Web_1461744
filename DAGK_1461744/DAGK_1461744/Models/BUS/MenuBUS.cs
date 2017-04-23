@@ -34,5 +34,10 @@ namespace DAGK_1461744.Models.BUS
             var db = new DAGKConnectionDB();
             return db.Page<SanPham>(page, itempage, "select * from SanPham where MaLoaiSanPham=4");
         }
+        public static Page<SanPham> DanhSachShop(int page, int itempage)
+        {
+            var db = new DAGKConnectionDB();
+            return db.Page<SanPham>(page, itempage, "select * from SanPham ");
+        }
     }
 }

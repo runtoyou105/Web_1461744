@@ -1,0 +1,77 @@
+﻿@model PetaPoco.Page<DAGKConnection.SanPham>
+@{
+    ViewBag.Title = "Shop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>Shop</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model.Items)
+            { 
+            <div class="col-md-3 col-sm-6">
+                <div class="single-shop-product">
+
+
+                        <div class="product-upper">
+                            <img src="~/img/@{@item.HinhAnh}.jpg" alt="">
+                        </div>
+                        <h2>@Html.ActionLink(item.TenSP, "Details", new { id = item.MaSP })</h2>
+                        <div class="product-carousel-price">
+                            <ins>Giá: @string.Format("{0:#,0 VNĐ}", @item.Gia)</ins>
+                        </div>
+
+                        <div class="product-option-shop">
+                            <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/canvas/shop/?add-to-cart=70">Add to cart</a>
+                        </div>
+    
+                </div>
+             </div>
+            }
+           
+
+            </div>
+        </div>
+    <div class="product-pagination text-center">
+        <nav>
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">«</span>
+                    </a>
+                </li>
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li>@Html.ActionLink(i.ToString(), "Shop", new { page = i })</li>
+
+                }
+
+
+
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">»</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    </div>
+               
+          
+
+

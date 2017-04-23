@@ -9,16 +9,11 @@ namespace DAGK_1461744.Controllers
 {
     public class SanPhamController : Controller
     {
-        // GET: SanPham
-        //public ActionResult Index()
-        //{
-        //    var dsSanPham = SanPhamBUS.DanhSach();
-        //    return View(dsSanPham);
-        //}
+        
 
         public ActionResult Index(int page = 1)
         {
-            var dsSanPham = SanPhamBUS.DanhSach(page, 2);
+            var dsSanPham = SanPhamBUS.DanhSach(page, 5);
             return View(dsSanPham);
         }
 

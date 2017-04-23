@@ -1,0 +1,134 @@
+﻿@model PetaPoco.Page<DAGKConnection.LoaiSanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Mainlayout.cshtml";
+}
+
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Loại Sản phẩm</h5>
+            <span>Quản lý loại sản phẩm</span>
+        </div>
+
+        <div class="horControlB menu_action">
+            <ul>
+                <li>
+                    <a href="admin/product/add.html">
+
+                        <span>Thêm mới</span>
+                    </a>
+                </li>
+
+
+
+            </ul>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="line"></div>
+
+
+<div class="wrapper" id="main_product">
+    <div class="widget">
+
+        <div class="title">
+            <span class="titleIcon"><input type="checkbox" id="titleCheck" name="titleCheck" /></span>
+            <h6>
+                Danh sách sản phẩm
+            </h6>
+            <div class="num f12"><b>0</b></div>
+        </div>
+
+        <table cellpadding="0" cellspacing="0" width="100%" class="sTable mTable myTable" id="checkAll">
+
+            <thead class="filter">
+                <tr>
+                    <td colspan="6">
+                        <form class="list_filter form" action="index.php/admin/product.html" method="get">
+                            <table cellpadding="0" cellspacing="0" width="80%">
+                                <tbody></tbody>
+                            </table>
+                        </form>
+                    </td>
+                </tr>
+            </thead>
+
+            <thead>
+                <tr>
+                    <td style="width:21px;">STT</td>
+                    <td style="width:60px;">Mã Loại Sản Phẩm</td>
+                    <td style="width:100px;">Tên Loại Sản Phẩm</td>
+                    <td style="width:50px;">Chức năng</td>
+                    
+                </tr>
+            </thead>
+
+
+            <tfoot class="auto_check_pages">
+                <tr>
+                    <td colspan="6" rowspan="2">
+                        <div class="list_action itemActions">
+                            <div class="product-pagination text-center">
+                                <nav>
+                                    <ul class="pagination">
+                                        <li>
+
+                                            <span aria-hidden="true">«</span>
+
+                                        </li>
+                                        @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                                            <li>@Html.ActionLink(i.ToString(), "Index", new { page = i })</li>
+
+                                        }
+
+
+
+                                        <li>
+
+                                            <span aria-hidden="true">»</span>
+
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <div class='pagination'>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+
+            <tbody class="list_item">
+                @foreach (var item in Model.Items)
+                {
+                    <tr class='row_9'>
+                        <td class="textC" >@item.MaLoaiSanPham</td>
+                        <td class="textC" >@item.MaLoaiSanPham</td>
+                        <td class="textC" >@item.TenLoaiSP</td>
+                        <td class="option textC">
+                           
+                            <a href="admin/product/edit/9.html" title="Chỉnh sửa" class="tipS">
+                                <img src="~/Asset/images/icons/color/edit.png" />
+                            </a>
+
+                            <a href="admin/product/del/9.html" title="Xóa" class="tipS verify_action">
+                                <img src="~/Asset/images/icons/color/delete.png" />
+                            </a>
+                        </td>
+                        
+                    </tr>
+            }
+
+
+            </tbody>
+
+        </table>
+    </div>
+
+</div>		<div class="clear mt30"></div>
+

@@ -31,10 +31,15 @@ namespace DAGK_1461744.Controllers
             var dsSanPham = MenuBUS.DanhSachSamSung(page, 5);
             return View(dsSanPham);
         }
+        public ActionResult Shop(int page = 1)
+        {
+            var dsSanPham = MenuBUS.DanhSachShop(page, 12);
+            return View(dsSanPham);
+        }
         // GET: Menu/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(SanPhamBUS.ChiTiet(id));
         }
 
         // GET: Menu/Create

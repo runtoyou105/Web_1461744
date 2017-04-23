@@ -19,7 +19,7 @@
 
             <h2>
 
-                @Html.ActionLink(item.TenSP, "Details", "SanPham", new { id = item.MaSP })
+                @Html.ActionLink(item.TenSP, "Details", new { id = item.MaSP })
             </h2>
             <div class="product-carousel-price">
                 <ins>Giá: @string.Format("{0:#,0 VNĐ}", @item.Gia)</ins>
@@ -39,7 +39,7 @@
             </li>
             @for (int i = 1; i <= Model.TotalPages; i++)
             {
-                <li>@Html.ActionLink(i.ToString(), "Index", new { page = i })</li>
+                <li>@Html.ActionLink(i.ToString(), "Sony", new { page = i })</li>
 
             }
 
