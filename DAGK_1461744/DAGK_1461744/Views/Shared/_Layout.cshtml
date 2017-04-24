@@ -1,4 +1,4 @@
-﻿
+﻿@using DAGK_1461744.Models.BUS;
 @{
     ViewBag.Title = "_MainLayout";
 }
@@ -107,12 +107,15 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="@Url.Action("Index","SanPham")">Home</a></li>
+                        <li class="active"><a href="@Url.Action("Index","Home")">Home</a></li>
                         <li><a href="@Url.Action("Shop","Menu")">Sản Phẩm</a></li>
-                        <li><a href="@Url.Action("Index","Menu")">Sony</a></li>
-                        <li><a href="@Url.Action("Sony","Menu")">Apple</a></li>
-                        <li><a href="@Url.Action("Oppo","Menu")">Oppo</a></li>
-                        <li><a href="@Url.Action("SamSung","Menu")">SamSung</a></li>
+                        @foreach (var i in MenuBUS.DanhSachAll())
+                        {
+                            <li>
+
+                                <a href="@Url.Action("Item","Menu",new { @id = i.MaLoaiSanPham })">@i.TenLoaiSP</a>
+                            </li>
+                        }
                        
                        @* <li><a href="#">Others</a></li>
     <li><a href="#">Contact</a></li>*@

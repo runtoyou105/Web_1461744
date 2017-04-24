@@ -16,25 +16,31 @@ namespace DAGK_1461744.Controllers
             var dsSanPham = MenuBUS.DanhSach(page, 5);
             return View(dsSanPham);
         }
-        public ActionResult Sony(int page = 1)
-        {
-            var dsSanPham = MenuBUS.DanhSachSony(page, 5);
-            return View(dsSanPham);
-        }
-        public ActionResult Oppo(int page = 1)
-        {
-            var dsSanPham = MenuBUS.DanhSachOppo(page, 5);
-            return View(dsSanPham);
-        }
-        public ActionResult SamSung(int page = 1)
-        {
-            var dsSanPham = MenuBUS.DanhSachSamSung(page, 5);
-            return View(dsSanPham);
-        }
+       
+
+        //public ActionResult Sony(int page = 1)
+        //{
+        //    var dsSanPham = MenuBUS.DanhSachSony(page, 5);
+        //    return View(dsSanPham);
+        //}
+        //public ActionResult Oppo(int page = 1)
+        //{
+        //    var dsSanPham = MenuBUS.DanhSachOppo(page, 5);
+        //    return View(dsSanPham);
+        //}
+        //public ActionResult SamSung(int page = 1)
+        //{
+        //    var dsSanPham = MenuBUS.DanhSachSamSung(page, 5);
+        //    return View(dsSanPham);
+        //}
         public ActionResult Shop(int page = 1)
         {
             var dsSanPham = MenuBUS.DanhSachShop(page, 12);
             return View(dsSanPham);
+        }
+        public ActionResult Item(int id)
+        {
+            return View(MenuBUS.TatCaSanPham(id));
         }
         // GET: Menu/Details/5
         public ActionResult Details(int id)
