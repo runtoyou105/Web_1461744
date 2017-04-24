@@ -32,11 +32,41 @@ namespace DAGK_1461744.Areas.Admin.Controllers
         }
 
         // POST: Admin/SanPhamAdmin/Create
-        [HttpPost]
+        [HttpPost,ValidateInput(false)]
         public ActionResult Create(SanPham a)
         {
             try
             {
+                {
+                    // TODO: Add insert logic here
+                    //Hàm thêm
+                    if (HttpContext.Request.Files.Count > 0) { }
+
+                    var hpf = HttpContext.Request.Files[0];
+                    if (hpf.ContentLength > 0)
+                    {
+                        string fileName = Guid.NewGuid().ToString();
+                        string fileName1 = Guid.NewGuid().ToString();
+                        string fileName2 = Guid.NewGuid().ToString();
+                        string fileName3 = Guid.NewGuid().ToString();
+
+
+                        string fullPathWithFileName = "/img/" + fileName +".jpg" ;
+                        string fullPathWithFileName1 = "/img/" + fileName1 + ".jpg";
+                        string fullPathWithFileName2 = "/img/" + fileName2 + ".jpg";
+                        string fullPathWithFileName3 = "/img/" + fileName3 + ".jpg";
+
+                        hpf.SaveAs(Server.MapPath(fullPathWithFileName));
+                        hpf.SaveAs(Server.MapPath(fullPathWithFileName1));
+                        hpf.SaveAs(Server.MapPath(fullPathWithFileName2));
+                        hpf.SaveAs(Server.MapPath(fullPathWithFileName3));
+                        a.HinhAnh = fullPathWithFileName;
+                        a.HinhAnh1 = fullPathWithFileName1;
+                        a.HinhAnh2 = fullPathWithFileName2;
+                        a.HinhAnh3 = fullPathWithFileName3;
+
+                    }
+                }
                 // TODO: Add insert logic here
                 SPAdminBUS.ThemSP(a);
                 return RedirectToAction("Index");

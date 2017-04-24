@@ -17,7 +17,8 @@
 
             <!-- Form -->
             <form class="form" id="form"  method="post" enctype="multipart/form-data">
-        @using (Html.BeginForm("Create", "SanPhamAdmin", FormMethod.Post))
+@using (Html.BeginForm("Create", "SanPhamAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+ 
         {
                 <fieldset>
                     <div class="widget">
@@ -106,11 +107,41 @@
                                 </div>
                                 <!-- Hình ảnh -->
                                 
+                             <div class="formRow">
+                                  @Html.LabelFor(model => model.HinhAnh, "Hình ảnh", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div>
+                                     <input type="file" name="imagefile" />
+                                       @Html.ValidationMessageFor(model => model.HinhAnh, "", new { @class = "text-danger" })
+                                    </div>
+                            <div class="clear"></div>
+                            </div>
+                                <!-- Hình ảnh 1-->
+
                                 <div class="formRow">
-                                    <label class="formLeft">Hình ảnh:<span class="req">*</span></label>
-                                    <div class="formRight">
-                                        <div class="left"><input type="file" id="image" name="HinhAnh"></div>
-                                        <div name="image_list_error" class="clear error"></div>
+                                    @Html.LabelFor(model => model.HinhAnh1, "Hình ảnh phụ 1:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div>
+                                        <input type="file" name="imagefile" />
+                                        @Html.ValidationMessageFor(model => model.HinhAnh1, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <!-- Hình ảnh 2 -->
+
+                                <div class="formRow">
+                                    @Html.LabelFor(model => model.HinhAnh2, "Hình ảnh phụ 2", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div>
+                                        <input type="file" name="imagefile" />
+                                        @Html.ValidationMessageFor(model => model.HinhAnh2, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <!-- Hình ảnh 3-->
+
+                                <div class="formRow">
+                                    @Html.LabelFor(model => model.HinhAnh3, "Hình ảnh phụ 3", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div>
+                                        <input type="file" name="imagefile" />
+                                        @Html.ValidationMessageFor(model => model.HinhAnh3, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="clear"></div>
                                 </div>

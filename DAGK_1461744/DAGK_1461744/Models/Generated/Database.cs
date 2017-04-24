@@ -231,6 +231,24 @@ namespace DAGKConnection
 
 
 
+		[Column] public string HinhAnh1 { get; set; }
+
+
+
+
+
+		[Column] public string HinhAnh2 { get; set; }
+
+
+
+
+
+		[Column] public string HinhAnh3 { get; set; }
+
+
+
+
+
 		[Column] public string ManHinh { get; set; }
 
 

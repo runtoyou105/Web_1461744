@@ -27,7 +27,7 @@
 
 
                         <div class="product-upper">
-                            <img src="~/img/@{@item.HinhAnh}.jpg" alt="">
+                            <img src="@item.HinhAnh" alt="">
                         </div>
                         <h2>@Html.ActionLink(item.TenSP, "Details", new { id = item.MaSP })</h2>
                         <div class="product-carousel-price">
