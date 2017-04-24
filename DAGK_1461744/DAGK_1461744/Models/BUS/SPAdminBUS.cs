@@ -19,6 +19,15 @@ namespace DAGK_1461744.Models.BUS
             var db = new DAGKConnectionDB();
             return db.Page<LoaiSanPham>(page, itempage, "select * from LoaiSanPham");
         }
-
+        public static void ThemLoaiSP(LoaiSanPham a)
+        {
+            var db = new DAGKConnectionDB();
+            db.Insert(a);
+        }
+        public static void ThemSP(SanPham a)
+        {
+            var db = new DAGKConnectionDB();
+            db.Insert(a);
+        }
     }
 }

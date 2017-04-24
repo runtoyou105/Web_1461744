@@ -1,0 +1,211 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Mainlayout.cshtml";
+}
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Thêm Sản phẩm</h5>
+            
+        </div>
+        <div class="clear"></div>
+     </div>
+</div>
+        <!-- Main content wrapper -->
+        <div class="wrapper">
+
+            <!-- Form -->
+            <form class="form" id="form"  method="post" enctype="multipart/form-data">
+        @using (Html.BeginForm("Create", "SanPhamAdmin", FormMethod.Post))
+        {
+                <fieldset>
+                    <div class="widget">
+                        <div class="title">
+                            <img src="~/Asset/images/icons/dark/add.png" class="titleIcon" />
+                            <h6>Thêm mới Sản phẩm</h6>
+                        </div>
+                   
+                       
+
+                        <div class="tab_container">
+                            <div id='tab1' class="tab_content pd0">
+                                <div class="formRow">
+                                    <label class="formLeft" for="param_name">Tên sản phẩm:<span class="req">*</span></label>
+                                    <div class="formRight">
+                                        <span class="oneTwo"><input name="TenSP" id="param_name" _autocheck="true" type="text" /></span>
+                                        <span name="name_autocheck" class="autocheck"></span>
+                                        <div name="name_error" class="clear error"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <!--Mô tả-->
+                                <div id='tab2' class="tab_content pd0">
+
+                                    <div class="formRow">
+                                        <label class="formLeft" for="param_site_title">Mô tả:</label>
+                                        <div class="formRight">
+                                            <span class="oneTwo"><textarea name="MoTa" id="param_site_title" _autocheck="true" rows="4" cols=""></textarea></span>
+                                            <span name="site_title_autocheck" class="autocheck"></span>
+                                            <div name="site_title_error" class="clear error"></div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="formRow hide"></div>
+                                </div>
+                                <!-- Xuất xứ -->
+                                <div class="formRow">
+                                    <label class="formLeft" for="param_warranty">
+                                        Xuất Xứ:
+                                    </label>
+                                    <div class="formRight">
+                                        <span class="oneFour"><input name="XuatXu" id="param_warranty" type="text" /></span>
+                                        <span name="warranty_autocheck" class="autocheck"></span>
+                                        <div name="warranty_error" class="clear error"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <!-- Số lượng tồn -->
+                                <div class="formRow">
+                                    <label class="formLeft" for="param_warranty">
+                                       Số lượng tồn:
+                                    </label>
+                                    <div class="formRight">
+                                        <span class="oneFour"><input name="SoLuongTon" id="param_warranty" type="text" /></span>
+                                        <span name="warranty_autocheck" class="autocheck"></span>
+                                        <div name="warranty_error" class="clear error"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <!--Date-->
+                                <div class="formRow">
+                                    <label class="formLeft" for="param_price">
+                                        Ngày Nhập:
+                                        <span class="req">*</span>
+                                    </label>
+                                    <div class="formRight">
+                                        <span class="oneTwo">
+                                            <input name="NgayNhap" style='width:100px' id="param_price" class="format_number" _autocheck="true" type="text" />
+                                            <img class='tipS' title='yyyy-mm-dd' style='margin-bottom:-8px' src="~/Asset/crown/images/icons/notifications/information.png" />
+                                        </span>
+                                        <span name="price_autocheck" class="autocheck"></span>
+                                        <div name="price_error" class="clear error"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+
+                                <!-- Giá -->
+                                <div class="formRow">
+                                    <label class="formLeft" for="param_price">
+                                        Giá :
+                                        <span class="req">*</span>
+                                    </label>
+                                    <div class="formRight">
+                                        <span class="oneTwo">
+                                            <input name="Gia" style='width:100px' id="param_price" class="format_number" _autocheck="true" type="text" />
+                                            <img class='tipS' title='Giá bán sử dụng để giao dịch' style='margin-bottom:-8px' src="~/Asset/crown/images/icons/notifications/information.png" />
+                                        </span>
+                                        <span name="price_autocheck" class="autocheck"></span>
+                                        <div name="price_error" class="clear error"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <!-- Hình ảnh -->
+                                
+                                <div class="formRow">
+                                    <label class="formLeft">Hình ảnh:<span class="req">*</span></label>
+                                    <div class="formRight">
+                                        <div class="left"><input type="file" id="image" name="HinhAnh"></div>
+                                        <div name="image_list_error" class="clear error"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <!-- Ảnh kèm theo -->
+                                <div class="formRow">
+                                    <label class="formLeft">Ảnh kèm theo:</label>
+                                    <div class="formRight">
+                                        <div class="left"><input type="file" id="image_list" name="image_list[]" multiple></div>
+                                        <div name="image_list_error" class="clear error"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+
+                                <!-- Man hình -->
+                                <div class="formRow">
+                                    <label class="formLeft" for="param_warranty">
+                                        Màn Hình::
+                                    </label>
+                                    <div class="formRight">
+                                        <span class="oneFour"><input name="ManHinh" id="param_warranty" type="text" /></span>
+                                        <span name="warranty_autocheck" class="autocheck"></span>
+                                        <div name="warranty_error" class="clear error"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+
+                                <!-- RAM -->
+                                <div class="formRow">
+                                    <label class="formLeft" for="param_warranty">
+                                        RAM:
+                                    </label>
+                                    <div class="formRight">
+                                        <span class="oneFour"><input name="Ram" id="param_warranty" type="text" /></span>
+                                        <span name="warranty_autocheck" class="autocheck"></span>
+                                        <div name="warranty_error" class="clear error"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+
+                                <!-- Camera trước -->
+                                <div class="formRow">
+                                    <label class="formLeft" for="param_warranty">
+                                        Camera Trước:
+                                    </label>
+                                    <div class="formRight">
+                                        <span class="oneFour"><input name="CameraTruoc" id="param_warranty" type="text" /></span>
+                                        <span name="warranty_autocheck" class="autocheck"></span>
+                                        <div name="warranty_error" class="clear error"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <!-- Camera Sau -->
+                                <div class="formRow">
+                                    <label class="formLeft" for="param_warranty">
+                                        Camera Sau:
+                                    </label>
+                                    <div class="formRight">
+                                        <span class="oneFour"><input name="CameraSau" id="param_warranty" type="text" /></span>
+                                        <span name="warranty_autocheck" class="autocheck"></span>
+                                        <div name="warranty_error" class="clear error"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <!-- Maloaisp -->
+                                <div class="formRow">
+                                    <label class="formLeft" for="param_warranty">
+                                        Mã Loại Sản Phẩm:
+                                    </label>
+                                    <div class="formRight">
+                                        <span class="oneFour"><input name="MaLoaiSanPham" id="param_warranty" type="text" /></span>
+                                        <span name="warranty_autocheck" class="autocheck"></span>
+                                        <div name="warranty_error" class="clear error"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            
+
+                        </div><!-- End tab_container-->
+
+                        <div class="formSubmit">
+                            <input type="submit" value="Thêm mới" class="redB" />
+                            <input type="reset" value="Hủy bỏ" class="basic" />
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                        </div>
+                </fieldset>
+        }
+            </form>
+        </div>
+        <div class="clear mt30"></div>
+

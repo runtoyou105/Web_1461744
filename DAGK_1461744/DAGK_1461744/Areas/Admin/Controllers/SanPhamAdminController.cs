@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DAGK_1461744.Models.BUS;
-
+using DAGKConnection;
 
 namespace DAGK_1461744.Areas.Admin.Controllers
 {
@@ -33,12 +33,12 @@ namespace DAGK_1461744.Areas.Admin.Controllers
 
         // POST: Admin/SanPhamAdmin/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(SanPham a)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                SPAdminBUS.ThemSP(a);
                 return RedirectToAction("Index");
             }
             catch

@@ -1,7 +1,7 @@
 ﻿@model PetaPoco.Page<DAGKConnection.SanPham>
-
-
-
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <div class="product-carousel owl-carousel owl-theme owl-loaded owl-responsive-600">
     @foreach (var item in Model.Items)
     {

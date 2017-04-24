@@ -1,0 +1,77 @@
+﻿@model PetaPoco.Page<DAGKConnection.LoaiSanPham>
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Mainlayout.cshtml";
+}
+
+
+
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Thêm Loại Sản phẩm</h5>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- Main content wrapper -->
+<div class="wrapper">
+
+    <!-- Form -->
+    <form class="form" id="form"  method="post" enctype="multipart/form-data">
+        <fieldset>
+            <div class="widget">
+                <div class="title">
+                    <img src="~/Asset/images/icons/dark/add.png" class="titleIcon" />
+                    <h6>Thêm mới Loại Sản phẩm</h6>
+                </div>
+
+
+
+                <div class="tab_container">
+                    @using (Html.BeginForm("Create", "LoaiSanPhamAdmin", FormMethod.Post))
+                    {
+                    <div id='tab1' class="tab_content pd0">
+                    <!--Ma Loai SP-->
+                        <div class="formRow">
+                            <label class="formLeft" for="param_warranty">
+                                Mã Loại Sản Phẩm:
+                            </label>
+                            <div class="formRight">
+                                <span class="oneFour"><input name="MaLoaiSanPham" id="param_warranty" type="text" /></span>
+                                <span name="warranty_autocheck" class="autocheck"></span>
+                                <div name="warranty_error" class="clear error"></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    <!--Ten loại sp-->
+                        <div class="formRow">
+                            <label class="formLeft" for="param_name">Tên loại sản phẩm:<span class="req">*</span></label>
+                            <div class="formRight">
+                                <span class="oneTwo"><input name="TenLoaiSP" id="param_name" _autocheck="true" type="text" /></span>
+                                <span name="name_autocheck" class="autocheck"></span>
+                                <div name="name_error" class="clear error"></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                       
+
+
+
+                    </div><!-- End tab_container-->
+
+                    <div class="formSubmit">
+                        <input type="submit" value="Thêm mới" class="redB" />
+                        <input type="reset" value="Hủy bỏ" class="basic" />
+                    </div>
+                    <div class="clear"></div>
+                    }
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div class="clear mt30"></div>
+
+
